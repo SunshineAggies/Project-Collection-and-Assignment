@@ -19,6 +19,7 @@ class ProjectsController < ApplicationController
     render 'index'
   end
 
+#not an admin, then can not see the project info?
   def show
     @project = Project.find(params[:id])
     if !current_user.admin? && !@project.approved?
